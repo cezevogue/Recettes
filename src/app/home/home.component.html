@@ -1,0 +1,22 @@
+<!-- directive d'affichage angular: l'interpolation avec {{  }}       -->
+<div class="row justify-content-evenly">
+<div *ngFor="let recette of recettes" class="card w-25 col-md-3 p-0 m-2">
+  <div class="card-header p-0 m-0">
+    <img src="{{ recette.photo }}" alt="" class="img-top img-fluid">
+    <h2 class="card-title">{{ recette.titre }}</h2>
+  </div>
+  <div class="card-body">
+    <p>Description:{{ recette.description }}</p>
+    <button (click)="affich('detail')"  class="btn btn-outline-success">Détails</button>
+    <div *ngIf="detail">
+      <h4>Difficulté:{{ recette.difficulte}}/3</h4>
+      <h4>Coût:{{  recette.cout }}/3</h4>
+    </div>
+    <button (click)="affich('temps')" class="btn btn-outline-info">Temps</button>
+    <div *ngIf="temps">
+      <h4>Temps de préparation:{{ recette.tempsPrep}} min</h4>
+      <h4>Temps de cuisson:{{ recette.tempsCuisson }} min</h4>
+    </div>
+  </div>
+</div>
+</div>
