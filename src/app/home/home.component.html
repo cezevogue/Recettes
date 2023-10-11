@@ -7,15 +7,29 @@
   </div>
   <div class="card-body">
     <p>Description:{{ recette.description }}</p>
-    <button (click)="affich('detail')"  class="btn btn-outline-success">Détails</button>
-    <div *ngIf="detail">
-      <h4>Difficulté:{{ recette.difficulte}}/3</h4>
-      <h4>Coût:{{  recette.cout }}/3</h4>
-    </div>
-    <button (click)="affich('temps')" class="btn btn-outline-info">Temps</button>
-    <div *ngIf="temps">
-      <h4>Temps de préparation:{{ recette.tempsPrep}} min</h4>
-      <h4>Temps de cuisson:{{ recette.tempsCuisson }} min</h4>
+
+ <app-detail-recette [difficulte]="recette.difficulte" [cout]="recette.cout" [preparation]="recette.tempsPrep" [cuisson]="recette.tempsCuisson"   ></app-detail-recette>
+  </div>
+  <div class="card-body">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     Voir la recette
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Recette</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <p [innerHTML]="recette.ingredients" ></p>
+            <div class="dropdown-divider"></div>
+            <p [innerHTML]="recette.etapes"></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

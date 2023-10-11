@@ -45,23 +45,9 @@ export class HomeComponent {
     }
   ];
 
-  detail: boolean=false;
-  temps: boolean=false;
-
-  affich(type:string){
-
-    if (type=="detail")
-    {
-      this.detail = !this.detail;
-
-    }else{
-
-      this.temps = !this.temps
-
-    }
 
 
-  }
+
 
 
 }

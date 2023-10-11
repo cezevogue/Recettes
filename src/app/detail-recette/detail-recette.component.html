@@ -1,1 +1,12 @@
-<p>detail-recette works!</p>
+<button (click)="affich('detail')"  class="btn btn-outline-success">Détails</button>
+<button (click)="affich('temps')" class="btn btn-outline-info">Temps</button>
+
+<div *ngIf="temps">
+  <h4>Temps de préparation:{{ preparation}} min</h4>
+  <h4>Temps de cuisson:{{ cuisson }} min</h4>
+</div>
+
+<div *ngIf="detail">
+  <h4>Difficulté:{{ difficulte}}/3</h4>
+  <h4>Coût:{{  cout }}/3</h4>
+</div>

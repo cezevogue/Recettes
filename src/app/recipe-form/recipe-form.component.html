@@ -1,0 +1,50 @@
+
+
+
+
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="submit(form)" >
+    <div class="mb-3">
+      <label for="titre" class="form-label">titre de la recette</label>
+      <input [(ngModel)]="recette.titre" type="text" name="titre" class="form-control  border border-5" id="titre" >
+    </div>
+    <div class="mb-3">
+      <label for="photo" class="form-label">Photo</label>
+      <input [(ngModel)]="recette.photo" type="text" name="photo" class="form-control  border border-5" id="photo" >
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">description</label>
+      <input [(ngModel)]="recette.description" name="description" type="text" class="form-control border border-3" id="description">
+    </div>
+    <div class="mb-3">
+      <label for="ingredients" class="form-label">ingredients</label>
+      <textarea [(ngModel)]="recette.ingredients" name="ingredients" class="form-control border border-3" id="ingredients" rows="10"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="etapes" class="form-label">étapes</label>
+      <textarea [(ngModel)]="recette.etapes" name="etapes" class="form-control border border-3" id="etapes" rows="10"></textarea>
+    </div>
+    <select [(ngModel)]="recette.difficulte" name="difficulte" class="form-select col-md-4  border border-3" aria-label="Default select example">
+      <option selected>difficulte</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <div class="col-md-4  ">
+      <label  for="cout" class="form-label">cout en €</label>
+      <input [(ngModel)]="recette.cout" name="cout" type="number" class="form-control border border-3" id="cout">
+    </div>
+    <div class="col-md-4  ">
+      <label for="tempsCuisson" class="form-label">temps de cuisson</label>
+      <input [(ngModel)]="recette.cuisson" name="cuisson" type="number" class="form-control border border-3" id="tempsCuisson">
+    </div>
+    <div class="col-md-4  ">
+      <label for="tempsPrep" class="form-label">temps de preparation</label>
+      <input  [(ngModel)]="recette.preparation" name="preparation" type="number" class="form-control border border-3" id="tempsPrep" >
+    </div>
+
+
+    <button type="submit" class="btn btn-primary border border-5">Submit</button>
+  </form>
+
+</div>
