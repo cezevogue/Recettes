@@ -37,4 +37,11 @@ export class HttpService {
   }
 
 
+  deleteData(table:string, id:any)
+  {
+    return this.client.get('http://127.0.0.1/Recettes/src/app/service/API/'+table+'.php?action=delete&id='+id);
+
+  }
+
+
 }

@@ -11,6 +11,8 @@ import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { RecipesComponent } from './recipes/recipes.component';
+import { CategorieFormComponent } from './categorie-form/categorie-form.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 
@@ -22,6 +24,8 @@ import { RecipesComponent } from './recipes/recipes.component';
     DetailRecetteComponent,
     RecipeFormComponent,
     RecipesComponent,
+    CategorieFormComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,

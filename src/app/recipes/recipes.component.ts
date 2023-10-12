@@ -15,6 +15,26 @@ export class RecipesComponent {
 
   recipes: any;
 
+  delete(id:any)
+  {
+
+    this.http.deleteData('recette',id).subscribe(
+      {
+        next: (data) => console.log('ok'),
+        error: (err) => console.log(err),
+        complete: () => console.log("process terminé")
+
+
+      });
+
+          this.getData();
+
+
+  }
+
+
+
+
   getData() {
     this.http.getData('recette').subscribe(
       {

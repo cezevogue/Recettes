@@ -57,7 +57,7 @@ export class RecipeFormComponent {
        );
      }
 
-
+    this.router.navigate(['recipes']);
 
   }
   ngOnInit()

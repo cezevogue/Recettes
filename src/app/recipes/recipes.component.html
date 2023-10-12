@@ -10,7 +10,7 @@
     <td>{{ recipe.titre }}</td>
     <td>
       <a [routerLink]="['/formRecipe', recipe.id]" class="btn btn-warning">Modifier</a>
-      <a href="" class="btn btn-danger">Supprimer</a>
+      <a (dblclick)="delete(recipe.id)" class="btn btn-danger">Supprimer</a>
     </td>
   </tr>
   </tbody>
