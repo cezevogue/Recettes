@@ -1,0 +1,16 @@
+
+
+
+
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="submit(form)" >
+    <input type="hidden" name="id" [(ngModel)]="categorie.id" >
+    <div class="mb-3">
+      <label for="titre" class="form-label">titre de la categorie</label>
+      <input [(ngModel)]="categorie.titre" type="text" name="titre" class="form-control  border border-5" id="titre" >
+    </div>
+
+    <button type="submit" class="btn btn-primary border border-5">Submit</button>
+  </form>
+
+</div>

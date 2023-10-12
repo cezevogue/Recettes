@@ -1,0 +1,17 @@
+<table class="table table-striped table-dark">
+  <thead>
+  <tr>
+    <th>Titre</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let categorie of categories" >
+    <td>{{ categorie.titre }}</td>
+    <td>
+      <a [routerLink]="['/formCategorie', categorie.id]" class="btn btn-warning">Modifier</a>
+      <a (dblclick)="delete(categorie.id)" class="btn btn-danger">Supprimer</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
