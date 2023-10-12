@@ -4,6 +4,7 @@
 
 <div class="container">
   <form #form="ngForm" (ngSubmit)="submit(form)" >
+    <input type="hidden" name="id" [(ngModel)]="recette.id" >
     <div class="mb-3">
       <label for="titre" class="form-label">titre de la recette</label>
       <input [(ngModel)]="recette.titre" type="text" name="titre" class="form-control  border border-5" id="titre" >

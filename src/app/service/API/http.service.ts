@@ -9,9 +9,16 @@ export class HttpService {
 
   constructor(private client: HttpClient) { }
 
-  postData(table:string,data: JSON): Observable<any>
+  postData(table:string,data: JSON, id:any=null): Observable<any>
   {
-    return this.client.post('http://127.0.0.1/Recettes/src/app/service/API/'+table+'.php?action=create', JSON.stringify(data));
+    if (id==null){
+      return this.client.post('http://127.0.0.1/Recettes/src/app/service/API/'+table+'.php?action=create', JSON.stringify(data));
+
+    }else{
+      return this.client.post('http://127.0.0.1/Recettes/src/app/service/API/'+table+'.php?action=edit', JSON.stringify(data));
+
+    }
+
 
   }
 

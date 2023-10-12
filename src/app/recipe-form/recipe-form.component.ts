@@ -18,6 +18,7 @@ export class RecipeFormComponent {
 
 
   recette:any = {
+    id:null,
     titre: "",
     description: "",
     photo: "",
@@ -33,15 +34,29 @@ export class RecipeFormComponent {
 
 
   submit(form: NgForm) {
-    // console.log(form.value);
-    this.http.postData('recette', form.value).subscribe(
-      {
-        next: (data) => console.log(data),
-        error: (err) => console.log(err),
-        complete: () => console.log("process terminé")
+     console.log(form.value);
+     if (this.id==null){
+       this.http.postData('recette', form.value).subscribe(
+         {
+           next: (data) => console.log(data),
+           error: (err) => console.log(err),
+           complete: () => console.log("process terminé")
 
-      }
-    );
+         }
+       );
+
+     }else{
+
+       this.http.postData('recette', form.value, this.id).subscribe(
+         {
+           next: (data) => console.log(data),
+           error: (err) => console.log(err),
+           complete: () => console.log("process terminé")
+
+         }
+       );
+     }
+
 
 
   }

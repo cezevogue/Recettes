@@ -27,6 +27,33 @@ if ($_GET['action']=='create')
 
 }
 
+if ($_GET['action']=='edit')
+{
+  $data= json_decode(file_get_contents('php://input'), true);
+
+  foreach ($data as $key=>$value)
+  {
+
+    $data[$key]=htmlspecialchars($value);
+
+  }
+
+
+
+  $sql="UPDATE recette SET titre=:titre, description=:description, difficulte=:difficulte, cout=:cout, preparation=:preparation, cuisson=:cuisson, photo=:photo, etapes=:etapes, ingredients=:ingredients WHERE id=:id";
+
+  $result=$pdo->prepare($sql);
+  $result->execute($data);
+  // echo 'je suis la';
+  echo json_encode($data);
+
+
+
+}
+
+
+
+
 if ($_GET['action']=='readAll')
 {
 
