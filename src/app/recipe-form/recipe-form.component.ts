@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {HttpService} from "../service/API/http.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -9,12 +10,14 @@ import {HttpService} from "../service/API/http.service";
   styleUrls: ['./recipe-form.component.css']
 })
 export class RecipeFormComponent {
+  id:any;
+  constructor(private http: HttpService, private router: Router, private param: ActivatedRoute) {
 
-  constructor(private http: HttpService) {
+
   }
 
 
-  recette = {
+  recette:any = {
     titre: "",
     description: "",
     photo: "",
@@ -27,6 +30,8 @@ export class RecipeFormComponent {
 
   }
 
+
+
   submit(form: NgForm) {
     // console.log(form.value);
     this.http.postData('recette', form.value).subscribe(
@@ -37,6 +42,20 @@ export class RecipeFormComponent {
 
       }
     );
+
+
+  }
+  ngOnInit()
+  {
+    this.id=this.param.snapshot.paramMap.get('id');
+    this.http.getData('recette', this.id).subscribe(
+      {
+        next: (data) => this.recette=data,
+        error: (err) => console.log(err),
+        complete: () => console.log('terminé')
+
+
+      });
 
 
   }

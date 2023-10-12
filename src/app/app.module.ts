@@ -10,6 +10,7 @@ import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { RecipesComponent } from './recipes/recipes.component';
 
 
 
@@ -20,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     DetailRecetteComponent,
     RecipeFormComponent,
+    RecipesComponent,
   ],
   imports: [
     BrowserModule,
