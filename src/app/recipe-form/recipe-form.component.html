@@ -26,10 +26,12 @@
       <textarea [(ngModel)]="recette.etapes" name="etapes" class="form-control border border-3" id="etapes" rows="10"></textarea>
     </div>
     <select [(ngModel)]="recette.difficulte" name="difficulte" class="form-select col-md-4  border border-3" aria-label="Default select example">
-      <option selected>difficulte</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
+    </select>
+    <select [(ngModel)]="recette.id_categorie" name="id_categorie" class="form-select col-md-4  border border-3" aria-label="Default select example">
+      <option *ngFor="let categorie of categories" value="{{ categorie.id }}">{{ categorie.titre }}</option>
     </select>
     <div class="col-md-4  ">
       <label  for="cout" class="form-label">cout en €</label>

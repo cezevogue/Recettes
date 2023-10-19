@@ -13,6 +13,25 @@ export class RecipeFormComponent {
   id:any;
   constructor(private http: HttpService, private router: Router, private param: ActivatedRoute) {
 
+    this.id=this.param.snapshot.paramMap.get('id');
+    this.http.getData('recette', this.id).subscribe(
+      {
+        next: (data) => this.recette=data,
+        error: (err) => console.log(err),
+        complete: () => console.log('terminé')
+
+
+      });
+
+
+    this.http.getData('categorie').subscribe(
+         {
+           next:(data)=> this.categories=data,
+           error:(err)=>console.log(err),
+           complete:()=>console.log('categories ok')
+
+         }
+       );
 
   }
 
@@ -27,9 +46,12 @@ export class RecipeFormComponent {
     cout: 0,
     preparation: 0,
     cuisson: 0,
-    etapes: ""
+    etapes: "",
+    id_categorie: 0
 
   }
+
+  categories: any;
 
 
 
@@ -57,20 +79,11 @@ export class RecipeFormComponent {
        );
      }
 
-    this.router.navigate(['recipes']);
+    //this.router.navigate(['recipes']);
 
   }
   ngOnInit()
   {
-    this.id=this.param.snapshot.paramMap.get('id');
-    this.http.getData('recette', this.id).subscribe(
-      {
-        next: (data) => this.recette=data,
-        error: (err) => console.log(err),
-        complete: () => console.log('terminé')
-
-
-      });
 
 
   }

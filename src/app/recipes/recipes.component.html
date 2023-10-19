@@ -2,12 +2,14 @@
   <thead>
   <tr>
     <th>Titre</th>
+    <th>Catégorie</th>
     <th>Actions</th>
   </tr>
   </thead>
   <tbody>
   <tr  *ngFor="let recipe of recipes" >
     <td>{{ recipe.titre }}</td>
+    <td>{{ recipe.categorie_titre }}</td>
     <td>
       <a [routerLink]="['/formRecipe', recipe.id]" class="btn btn-warning">Modifier</a>
       <a (dblclick)="delete(recipe.id)" class="btn btn-danger">Supprimer</a>

@@ -16,7 +16,7 @@ if ($_GET['action']=='create')
 
 
 
-  $sql="INSERT INTO recette (titre,description,cout, preparation,cuisson,difficulte, etapes, ingredients, photo) VALUES (:titre,:description,:cout, :preparation,:cuisson,:difficulte, :etapes,:ingredients, :photo)";
+  $sql="INSERT INTO recette (titre,description,cout, preparation,cuisson,difficulte, etapes, ingredients, photo, id_categorie) VALUES (:titre,:description,:cout, :preparation,:cuisson,:difficulte, :etapes,:ingredients, :photo, :id_categorie)";
 
   $result=$pdo->prepare($sql);
   $result->execute($data);
@@ -40,7 +40,7 @@ if ($_GET['action']=='edit')
 
 
 
-  $sql="UPDATE recette SET titre=:titre, description=:description, difficulte=:difficulte, cout=:cout, preparation=:preparation, cuisson=:cuisson, photo=:photo, etapes=:etapes, ingredients=:ingredients WHERE id=:id";
+  $sql="UPDATE recette SET titre=:titre, description=:description, difficulte=:difficulte, cout=:cout, preparation=:preparation, cuisson=:cuisson, photo=:photo, etapes=:etapes, ingredients=:ingredients, id_categorie=:id_categorie WHERE id=:id";
 
   $result=$pdo->prepare($sql);
   $result->execute($data);
@@ -58,7 +58,7 @@ if ($_GET['action']=='readAll')
 {
 
 
-  $sql="SELECT * FROM recette";
+  $sql="SELECT c.titre as categorie_titre, c.id as categorie_id, r.* FROM recette r INNER JOIN categorie c ON c.id=r.id_categorie";
 
   $result=$pdo->prepare($sql);
   $result->execute();
@@ -74,7 +74,7 @@ if ($_GET['action']=='readAll')
 if ($_GET['action']=='readOne')
 {
 
-  $sql="SELECT * FROM recette WHERE id=:id ";
+  $sql="SELECT c.titre as categorie_titre, c.id as categorie_id, r.* FROM recette r INNER JOIN categorie c ON c.id=r.id_categorie WHERE r.id=:id ";
 
   $result=$pdo->prepare($sql);
   $result->execute([':id'=>$_GET['id']]);
